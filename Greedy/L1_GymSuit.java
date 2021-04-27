@@ -31,7 +31,7 @@ public class L1_GymSuit {
         }
         answer +=n;
         return answer;
-
+ 
     }
 
     public static void main(String[] args) {
