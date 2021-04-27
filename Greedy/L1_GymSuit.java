@@ -40,4 +40,4 @@ public class L1_GymSuit {
         int n= 5;
         System.out.println(solution(n,a,b));
     }
-}
+} 
