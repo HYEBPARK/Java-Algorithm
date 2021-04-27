@@ -1,3 +1,7 @@
+//체육복을 입을 수 있는 사람의 수를 조금 더 구체화 시켜서 코딩을 했어야 했다. 
+//어떤 수를 더하고 빼야하는지가 헷갈려서 시간이 조금 걸렸다 .
+//int 와 double
+
 import java.util.Arrays;
 
 public class L1_FailureRate {
@@ -7,7 +11,8 @@ public class L1_FailureRate {
         double fail = 0;
 
         double[]result = new double[N];
-
+        
+        //여분체육복이 있는 사람이 잃어버린 경우의 수 
         for (int k = 0; k < N; k++) {
             stage[k]=k+1;
             for (int i = 0; i < stages.length; i++) {
@@ -20,6 +25,8 @@ public class L1_FailureRate {
             clear = 0;
             fail = 0;
         }
+        
+        // 체육복을 빌릴 수 있는 경우의 수
         while(N>0) {
             for (int i = 0; i < result.length - 1; i++) {
 
@@ -34,8 +41,6 @@ public class L1_FailureRate {
             }
             N--;
         }
-
-
         return stage;
     }
 }
