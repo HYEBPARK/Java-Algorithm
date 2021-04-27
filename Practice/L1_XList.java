@@ -6,7 +6,7 @@ public class L1_XList {
             answer[0] = x;
             if(i>0) {
                 answer[i] = x + answer[i - 1];
-            }
+                }
             }
         return answer;
     }
