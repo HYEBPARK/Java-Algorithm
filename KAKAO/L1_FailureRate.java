@@ -1,18 +1,13 @@
-//체육복을 입을 수 있는 사람의 수를 조금 더 구체화 시켜서 코딩을 했어야 했다. 
-//어떤 수를 더하고 빼야하는지가 헷갈려서 시간이 조금 걸렸다 .
-//int 와 double
+//https://velog.io/@hye_b/ProgrammersJava-%EC%8B%A4%ED%8C%A8%EC%9C%A8
 
-import java.util.Arrays;
-
-public class L1_FailureRate {
-    public static int[] solution(int N, int[] stages) {
-        int[] stage = new int[N];
+class Solution {
+    public int[] solution(int N, int[] stages) {
+       int[] stage = new int[N];
         double clear = 0;
         double fail = 0;
 
         double[]result = new double[N];
-        
-        //여분체육복이 있는 사람이 잃어버린 경우의 수 
+
         for (int k = 0; k < N; k++) {
             stage[k]=k+1;
             for (int i = 0; i < stages.length; i++) {
@@ -25,8 +20,6 @@ public class L1_FailureRate {
             clear = 0;
             fail = 0;
         }
-        
-        // 체육복을 빌릴 수 있는 경우의 수
         while(N>0) {
             for (int i = 0; i < result.length - 1; i++) {
 
@@ -38,18 +31,12 @@ public class L1_FailureRate {
                     stage[i] = stage[i + 1];
                     stage[i + 1] = tmp1;
                 }
+                
             }
             N--;
         }
+
+
         return stage;
-    }
-}
-
-class main {
-    public static void main(String[] args) {
-
-        int N1=4;
-        int stage1[]={4,4,4,4,4};
-        System.out.println(Arrays.toString(L1_FailureRate.solution(N1, stage1)));
     }
 }
