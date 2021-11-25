@@ -1,5 +1,5 @@
 *.class
 *.log
 *.iml
-../Baekjoon_Algo/.idea/
+Baekjoon_Algo/.idea/
 out/
