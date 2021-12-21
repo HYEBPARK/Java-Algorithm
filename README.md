@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-# Java-Algorithm
-=======
 
-# ⛄ Algorithm
+# ⛄ Java-Algorithm
 
  ### Programmers를 이용하여 알고리즘을 공부한 코드를 정리합니다. 
 
