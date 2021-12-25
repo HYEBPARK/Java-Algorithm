@@ -14,24 +14,10 @@ public class ConsecutiveSum_1912 {
         dp[0] = numArr[0];
         int max = dp[0];
         for (int i = 1; i < N; i++) {
-            if (dp[i - 1] + numArr[i] <= dp[i - 1]) {
-                if (dp[i - 1] + numArr[i] < 0) {
-                    if (dp[i - 1] < numArr[i]) {
-                        dp[i] = numArr[i];
-                        if (max < dp[i]) max = dp[i];
-
-                    } else dp[i] = 0;
-                } else {
-                    dp[i] = dp[i - 1] + numArr[i];
-                    if (max < dp[i]) max = dp[i];
-
-                }
-            } else {
-                dp[i] = dp[i - 1] + numArr[i];
-                if (max < dp[i]) max = dp[i];
-
-            }
+           dp[i] = Math.max(dp[i-1]+numArr[i], numArr[i]);
+           max = Math.max(max, dp[i]);
         }
         System.out.println(max);
     }
 }
+
