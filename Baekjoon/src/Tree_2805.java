@@ -1,35 +1,44 @@
-import java.util.Scanner;
+package D0114;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class Tree_2805 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        int K = sc.nextInt();
-        long tree[] = new long[N];
-        long max = 0;
-        for (int i = 0; i < N; i++) {
-            tree[i] = sc.nextInt();
-            if (tree[i] > max) max = tree[i];
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
+        int []tree = new int[N];
+        StringTokenizer st1 = new StringTokenizer(br.readLine());
+        int max = 0, height = 0;
+        for(int i = 0 ; i<N; i++){
+            tree[i] = Integer.parseInt(st1.nextToken());
+            if(max < tree[i]) max = tree[i];
         }
-        long left = 0, right = max, mid, height = 0;
         boolean flag = false;
-        while (left <= right) {
-            long sum = 0;
-            mid = (left + right) / 2;
-            for (int i = 0; i < tree.length; i++) {
-                if (tree[i] > mid) sum += tree[i] - mid;
-                else continue;
+        int left = 0, right= max, mid, result = 0;
+        while (left <= right){
+            int sum = 0;
+            mid = (left + right) /2;
+            for(int i = 0; i<tree.length;i++){
+                if(tree[i] > mid) sum+=tree[i] - mid;
             }
-            if (sum == K) {
-                System.out.println(mid);
+            if(sum == M) {
+                result = mid;
                 flag = true;
+                System.out.println(result);
                 break;
-            } else if (sum < K) right = mid - 1;
+            }
+            else if(sum < M) right = mid -1;
             else {
-                left = mid + 1;
+                left = mid+1;
                 height = mid;
             }
         }
-        if (!flag) System.out.println(height);
+        if(!flag) System.out.println(height);
     }
 }
