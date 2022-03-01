@@ -82,3 +82,22 @@ public class Contact_1013 {
         System.out.println(sb);
     }
 }
+
+/* 정규표현식 사용, 코드는 더 간결하지만 속도가 느렸다. 
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.util.regex.Pattern;
+
+public class Main {
+	public static void main (String[] args) throws java.lang.Exception {
+	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	    int T = Integer.parseInt(br.readLine());
+	    for(int i=0;i<T;i++){
+	        String str = br.readLine().trim();
+	        String ptn="(100+1+|01)+";
+	        System.out.println(str.matches(ptn)? "YES" : "NO");
+	    }
+	}
+}
+*/
