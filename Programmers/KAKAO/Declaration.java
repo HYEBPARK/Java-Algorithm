@@ -1,32 +1,31 @@
-//리팩토링 예정
-
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class  {
 	public static int[] solution(String[] id_list, String[] report, int k) {
-		Map<String, HashSet<String>> reportBoard = new LinkedHashMap<>();
-		Map<String, Integer> notice = new LinkedHashMap<>();
+			Map<String, HashSet<String>> reportedBoard = new LinkedHashMap<>();
+		Map<String, Integer> reportedCount = new LinkedHashMap<>();
 
 		for (String id : id_list) {
-			reportBoard.put(id, new HashSet<>());
-			notice.put(id, 0);
+			reportedBoard.put(id, new HashSet<>());
+			reportedCount.put(id, 0);
 		}
 
-		for (String record : report) {
-			String[] split = record.split(" ");
+		for (String reportRecord : report) {
+			String[] split = reportRecord.split(" ");
 			String reporter = split[0];
 			String user = split[1];
 
-			reportBoard.get(user).add(reporter);
+			reportedBoard.get(user).add(reporter);
 		}
 
-		reportBoard.values().stream().filter(set -> set.size() / k > 0)
-			.forEach(set ->
-				set.forEach(user ->
-					notice.put(user, notice.get(user) + 1)));
+		reportedBoard.values().stream()
+			.filter(reporters -> reporters.size() / k > 0)
+			.forEach(overReportedUsers ->
+				overReportedUsers.forEach(overReportedUser ->
+					reportedCount.put(overReportedUser, reportedCount.get(overReportedUser) + 1)));
 
-		return notice.values().stream().mapToInt(cnt -> cnt).toArray();
+		return reportedCount.values().stream().mapToInt(cnt -> cnt).toArray();
 	}
 }
